@@ -23,6 +23,7 @@ void Main()
 			fos.WriteLine(row.ToString());
 		}
 	}
+
 	
 }
 
@@ -51,12 +52,9 @@ public class RowData
 	}
 	
 	public override string ToString(){
-		var sb = new StringBuilder();
-		Values.OrderBy (v => v).ToList().ForEach(v => sb.Append(string.Format("{0},",v)));
+		var numberList = string.Join(",", Values);
 		
-		sb.Length -= 1;
-		
-		return string.Format("{0},,{1}", date, sb.ToString());
+		return string.Format("{0},,{1}", date, numberList);
 		
 	}
 }
